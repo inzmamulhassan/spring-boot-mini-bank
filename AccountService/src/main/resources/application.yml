@@ -1,0 +1,13 @@
+server:
+  port: 8100
+
+spring:
+  application:
+    name: account-service
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+    leaseRenewalIntervalInSeconds: 5
+    leaseExpirationDurationInSeconds: 10
+    metadataMap:
+      instanceId: ${spring.application.instance_id:${random.value}}
